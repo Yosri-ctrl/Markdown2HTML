@@ -42,7 +42,7 @@ def list(listing):
                 if line[0] == "-":
                     w.write("<ul>\n")
                     for l in listing:
-                        w.write("   <li>"+ l +"</li>\n")
+                        w.write("<li>"+ l +"</li>\n")
                     w.write("</ul>\n")
                     break
 
