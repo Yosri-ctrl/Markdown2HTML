@@ -54,7 +54,6 @@ def list(listing):
                     w.write("</ul>\n")
                     break
 def olist(olisting):
-    print("Sad")
     with open(argv[1], "r") as r:
         with open(argv[2], "a") as w:
             for line in r.readlines():
