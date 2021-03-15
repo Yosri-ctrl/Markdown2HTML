@@ -16,7 +16,19 @@ def checker():
 
 
 def converter():
-    count = 0
+    count=0
+    with open(argv[1], "r") as r:
+        with open(argv[2], "w") as w:
+
+            for line in r.readlines():
+                for char in line:
+                    if char == "#": count+=1
+                    
+                if line[0] == "#":
+                    w.write("<h"+str(count)+">"+ line[count+1:-1] +"</h"+str(count)+">\n")
+                count=0
+    
+    """count = 0
     with open(argv[1], "r") as r:
         with open(argv[2], "w") as w:
             for line in r.readlines():
@@ -27,7 +39,7 @@ def converter():
                     w.write(
                         " <h{}> Heading level {}</h{}>\n".format(count, count, count))
                 count = 0
-
+"""
 
 if __name__ == "__main__":
     if checker():
