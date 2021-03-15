@@ -18,7 +18,9 @@ def checker():
 def converter():
     counth = 0
     countl = 0
+    count0 = 0
     listing = []
+    olisting = []
     with open(argv[1], "r") as r:
         with open(argv[2], "w+") as w:
             for line in r.readlines():
@@ -30,12 +32,18 @@ def converter():
                 if line[0] == "-":
                     listing.append(line[2:-1])
                     countl = 1
+                if line[0] == "*":
+                    olisting.append(line[2:-1])
+                    counto = 1
                 counth = 0
     if(countl): 
         list(listing)
+    if(counto): 
+        olist(olisting)
 
 
 def list(listing):
+
     with open(argv[1], "r") as r:
         with open(argv[2], "a") as w:
             for line in r.readlines():
@@ -44,6 +52,17 @@ def list(listing):
                     for l in listing:
                         w.write("<li>"+ l +"</li>\n")
                     w.write("</ul>\n")
+                    break
+def olist(olisting):
+    print("Sad")
+    with open(argv[1], "r") as r:
+        with open(argv[2], "a") as w:
+            for line in r.readlines():
+                if line[0] == "*":
+                    w.write("<ol>\n")
+                    for l in olisting:
+                        w.write("<li>"+ l +"</li>\n")
+                    w.write("</ol>\n")
                     break
 
 if __name__ == "__main__":
