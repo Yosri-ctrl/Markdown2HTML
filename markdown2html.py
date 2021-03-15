@@ -16,30 +16,33 @@ def checker():
 
 
 def converter():
-    counth = 0
-    countl = 0
-    count0 = 0
-    listing = []
-    olisting = []
-    with open(argv[1], "r") as r:
-        with open(argv[2], "w+") as w:
-            for line in r.readlines():
-                for char in line:
-                    if char == "#": counth += 1
+    try:
+        counth = 0
+        countl = 0
+        count0 = 0
+        listing = []
+        olisting = []
+        with open(argv[1], "r") as r:
+            with open(argv[2], "w+") as w:
+                for line in r.readlines():
+                    for char in line:
+                        if char == "#": counth += 1
 
-                if line[0] == "#":
-                    w.write("<h"+str(counth)+">"+ line[counth+1:-1] +"</h"+str(counth)+">\n")
-                if line[0] == "-":
-                    listing.append(line[2:-1])
-                    countl = 1
-                if line[0] == "*":
-                    olisting.append(line[2:-1])
-                    counto = 1
-                counth = 0
-    if(countl): 
-        list(listing)
-    if(counto): 
-        olist(olisting)
+                    if line[0] == "#":
+                        w.write("<h"+str(counth)+">"+ line[counth+1:-1] +"</h"+str(counth)+">\n")
+                    if line[0] == "-":
+                        listing.append(line[2:-1])
+                        countl = 1
+                    if line[0] == "*":
+                        olisting.append(line[2:-1])
+                        counto = 1
+                    counth = 0
+        if(countl): 
+            list(listing)
+        if(counto): 
+            olist(olisting)
+    except:
+        pass
 
 
 def list(listing):
